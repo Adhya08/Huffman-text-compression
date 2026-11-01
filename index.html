@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HuffZip | Text Compression Tool</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+  <div class="brand">
+    <div class="brand-icon">H</div>
+    <div><h2>HuffZip</h2><span>TEXT COMPRESSION ENGINE</span></div>
+  </div>
+  <div class="nav-right"><span class="status-dot"></span>SYSTEM ONLINE <span class="version">P11 / DSA</span></div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div class="tag">DATA STRUCTURES PROJECT · P11</div>
+    <h1>Compress smarter.<br><span>Store efficiently.</span></h1>
+    <p>A lossless text compression system powered by Huffman Coding, Min Heap and Binary Trees.</p>
+  </section>
+
+  <section class="workspace">
+    <div class="panel">
+      <div class="panel-heading">
+        <div><span class="section-label">01 / INPUT</span><h2>Original Text</h2></div>
+        <span class="live-label">LIVE INPUT</span>
+      </div>
+      <textarea id="inputText" placeholder="Enter or paste your text here...&#10;&#10;Example: Huffman coding is a lossless compression algorithm."></textarea>
+      <div class="input-footer"><span id="charCount">0 characters</span><button class="text-button" id="clearBtn">Clear text</button></div>
+      <div class="actions">
+        <button class="primary-btn" id="compressBtn"><span>Compress Text</span><span>→</span></button>
+        <button class="secondary-btn" id="sampleBtn">Load Sample</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-heading">
+        <div><span class="section-label">02 / OUTPUT</span><h2>Encoded Data</h2></div>
+        <span class="live-label">HUFFMAN BITS</span>
+      </div>
+      <div class="output-box" id="encodedOutput"><div class="placeholder"><div class="placeholder-icon">01</div><p>Your compressed binary data will appear here.</p></div></div>
+      <div class="input-footer"><span id="bitCount">0 bits generated</span><button class="text-button" id="copyBtn">Copy output</button></div>
+      <div class="actions"><button class="secondary-btn full-btn" id="decodeBtn">Decode &amp; Recover Original Text</button></div>
+    </div>
+  </section>
+
+  <section class="stats-section">
+    <div class="section-heading">
+      <div><span class="section-label">03 / PERFORMANCE</span><h2>Compression Analytics</h2></div>
+      <span class="live-label">REAL-TIME RESULTS</span>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card"><span>ORIGINAL SIZE</span><h2 id="originalSize">0 <small>bits</small></h2><p>UTF-8 input size</p></div>
+      <div class="stat-card"><span>COMPRESSED SIZE</span><h2 id="compressedSize">0 <small>bits</small></h2><p>Encoded payload</p></div>
+      <div class="stat-card"><span>SPACE SAVED</span><h2 id="spaceSaved">0<small>%</small></h2><p>Estimated payload saving</p></div>
+      <div class="stat-card"><span>UNIQUE CHARACTERS</span><h2 id="uniqueChars">0</h2><p>Distinct symbols</p></div>
+    </div>
+    <div class="progress-card">
+      <div class="progress-heading"><span>Payload saving</span><strong id="ratioText">0%</strong></div>
+      <div class="progress-track"><div id="progressBar"></div></div>
+      <p>Percentage of original UTF-8 payload bits saved by Huffman encoding. Tree/header storage is not included.</p>
+    </div>
+  </section>
+
+  <section class="lower-grid">
+    <div class="panel">
+      <div class="panel-heading"><div><span class="section-label">04 / ANALYSIS</span><h2>Character Frequencies</h2></div></div>
+      <div class="table-wrapper">
+        <table><thead><tr><th>CHARACTER</th><th>FREQUENCY</th><th>HUFFMAN CODE</th></tr></thead>
+          <tbody id="frequencyTable"><tr><td colspan="3" class="empty-cell">No data available yet.</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-heading"><div><span class="section-label">05 / VERIFICATION</span><h2>Decoded Text</h2></div><span class="live-label">LOSSLESS CHECK</span></div>
+      <div class="decoded-box" id="decodedOutput"><span class="muted">Decoded text will appear here.</span></div>
+      <div id="verification" class="verification">Awaiting decompression...</div>
+    </div>
+  </section>
+
+  <section class="panel tree-panel">
+    <div class="panel-heading">
+      <div><span class="section-label">06 / DATA STRUCTURE VISUALIZATION</span><h2>Huffman Binary Tree</h2><p class="panel-description">Each left edge represents 0 and each right edge represents 1.</p></div>
+      <span class="live-label">TREE VIEW</span>
+    </div>
+    <div class="tree-container" id="treeContainer"><div class="placeholder"><div class="placeholder-icon">⌘</div><p>Generate a Huffman Tree to visualize its structure.</p></div></div>
+    <div class="legend"><span><i class="legend-leaf"></i> Character node</span><span><i class="legend-parent"></i> Internal node</span><span>0 = Left branch</span><span>1 = Right branch</span></div>
+  </section>
+
+  <section class="about">
+    <div><span class="section-label">ABOUT THE ALGORITHM</span><h2>Built on fundamental data structures.</h2><p>HuffZip uses a custom Min Heap to repeatedly extract the two lowest-frequency nodes. These nodes are combined to construct a Huffman Binary Tree, which generates prefix-free binary codes for lossless compression.</p></div>
+    <div class="tech-list"><span>MIN HEAP</span><span>BINARY TREE</span><span>GREEDY ALGORITHM</span><span>LOSSLESS CODING</span></div>
+  </section>
+</main>
+
+<footer><strong>HUFFZIP</strong><span>DATA STRUCTURES &amp; ALGORITHMS · P11</span><span>Huffman Text Compression Tool</span></footer>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
